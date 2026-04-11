@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skies Altair Form</title>
+
+    <style>
+        /* Root Theme */
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff00d4;
+            --accent: #9d4edd;
+            --dark-1: #0a0a12;
+            --dark-2: #12121f;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glow-cyan: lab(86.77% -41.49 -20.68 / 0.4);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark-1);
+            color: #fbfbfb;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        /* Ambient Glow Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 0, 212, 0.4) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 0;
+        }
+
+        /* Package Buttons */
+        .package-btn {
+            position: relative;
+            z-index: 2;
+            padding: 14px 32px;
+            margin: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--primary);
+            font-family: 'Syne', sans-serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .package-btn:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 25px var(--glow-cyan);
+            transform: translateY(-3px);
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            display: none;
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            margin: 60px auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: left;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .requirements-section h2 {
+            text-align: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Inputs */
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px 20px;
+            margin: 12px 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: lab(46.41% -24.68 -13.02);
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            margin-top: 20px;
+            padding: 16px 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-family: 'Syne', sans-serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: rgba(0, 240, 255, 0.15);
+            box-shadow: 0 0 30px var(--glow-cyan);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Select Your Package</h1>
+
+    <button class="package-btn" onclick="showForm('Premium')">🏆 Premium</button>
+    <button class="package-btn" onclick="showForm('Professional')">⭐ Professional</button>
+    <button class="package-btn" onclick="showForm('Standard')">🔹 Standard</button>
+
+    <!-- REQUIREMENTS FORM -->
+    <div class="requirements-section" id="formSection">
+
+        <h2>Project Requirements</h2>
+
+        <form action="https://formsubmit.co/skiesaltairtechnologiesmain@hotmail.com" method="POST">
+
+            <!-- Hidden settings -->
+            <input type="hidden" name="_subject" value="New Website Package Request">
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Auto Package -->
+            <input type="hidden" name="Selected Package" id="packageField">
+
+            <label>Full Name</label>
+            <input type="text" name="Full Name" required>
+
+            <label>Email Address</label>
+            <input type="email" name="Email" required>
+
+            <label>WhatsApp Number</label>
+            <input type="text" name="WhatsApp Number" placeholder="+27..." required>
+
+            <label>Website Type</label>
+            <select name="Website Type" required>
+                <option value="">Select Website Type</option>
+                <option>AI-Powered Website</option>
+                <option>Business Website</option>
+                <option>E-Commerce Website</option>
+                <option>Personal Brand Website</option>
+                <option>Landing Page</option>
+            </select>
+
+            <label>Hosting Plan</label>
+            <select name="Hosting Plan" required>
+                <option value="">Select Hosting Plan</option>
+                <option>Premium Managed Cloud</option>
+                <option>Advanced Managed Cloud</option>
+                <option>Standard Managed Cloud</option>
+                <option>Basic Managed Cloud</option>
+                <option>Shared Hosting</option>
+                <option>Dedicated Server</option>
+            </select>
+
+            <label>Project Description</label>
+            <textarea name="Requirements" rows="4" placeholder="Describe your website goals, features, colors, etc..."
+                required></textarea>
+
+            <input type="submit" value="Submit Request" class="submit-btn">
+
+        </form>
+    </div>
+
+    <script>
+        function showForm(packageName) {
+            document.getElementById("formSection").style.display = "block";
+            document.getElementById("packageField").value = packageName;
+
+            // Scroll smoothly to form
+            document.getElementById("formSection").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+</body>
+
+</html>
