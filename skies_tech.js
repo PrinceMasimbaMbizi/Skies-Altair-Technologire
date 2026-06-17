@@ -22,18 +22,14 @@ menuItems.forEach(item => {
 });
 
 function showSection(sectionId) {
+
+    history.pushState(
+        { section: sectionId },
+        '',
+        '#' + sectionId
+    );
+
     isTransitioning = true;
-
-    // First, ensure all menu items are in visible state before transitioning
-    menuItems.forEach((item) => {
-        // Remove initial-load class
-        item.classList.remove('initial-load');
-
-        // Set to visible state explicitly
-        item.style.opacity = '1';
-        item.style.transform = 'translateY(0) scale(1)';
-        item.style.animation = 'none';
-    });
 
     // Force reflow to apply the visible state
     void menuGrid.offsetWidth;
@@ -238,3 +234,22 @@ function filterGallery(category, btn) {
         }
     });
 }
+
+
+window.addEventListener('popstate', function () {
+
+    const activeSection = document.querySelector('.content-section.active');
+
+    if (activeSection) {
+        backToMenu();
+    }
+
+});
+
+// Handle browser back button
+
+history.replaceState(
+    { section: 'home' },
+    '',
+    '#home'
+);
