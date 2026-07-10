@@ -1912,3 +1912,131 @@ body {
 .whatsapp-contact-btn .contact-details p {
     color: rgba(255, 255, 255, 0.6);
 }
+
+.whatsapp-link {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline;
+    color: #1da851;
+}
+
+
+
+
+/* ================= PROJECTS ================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.project-card {
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    transition: .4s;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+
+}
+
+.project-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .4),
+        0 0 25px rgba(0, 240, 255, .2);
+
+}
+
+.project-card img {
+
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+
+}
+
+.project-content {
+
+    padding: 28px;
+
+}
+
+.project-content h3 {
+
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary);
+
+}
+
+.project-content p {
+
+    color: rgba(255, 255, 255, .7);
+    line-height: 1.7;
+    margin-bottom: 25px;
+
+}
+
+.project-btn {
+
+    display: inline-block;
+
+    padding: 12px 28px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    background: linear-gradient(135deg, #00f0ff, #9d4edd);
+
+    color: white;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+.project-btn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 25px rgba(0, 240, 255, .4);
+
+}
+
+@media(max-width:768px) {
+
+    .project-card img {
+
+        height: 190px;
+
+    }
+
+    .project-content {
+
+        padding: 20px;
+
+    }
+
+}
